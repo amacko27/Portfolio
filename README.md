@@ -1,11 +1,11 @@
 # Andreza Mackowiak — Portfolio
 
-A single-page portfolio for a **Web & Email Developer**, built as a static site for GitHub Pages. Hand-coded HTML/CSS with a purple & lime theme, anchor-based navigation, and a mobile-responsive layout.
+A single-page portfolio for a **WordPress Developer**, built as a static site for GitHub Pages. Hand-coded HTML/CSS with a purple & lime theme, anchor-based navigation, and a mobile-responsive layout.
 
 ## Sections
 - **Home** — intro / hero
 - **About** — background and focus
-- **Skills** — email development, front-end, CMS/platforms, QA & performance
+- **Skills** — WordPress development, front-end, back-end & data, QA & performance
 - **Experience** — work history timeline
 - **Projects** — selected builds and maintenance work
 - **Contact** — email & LinkedIn
