@@ -37,7 +37,7 @@
     .btn {
       font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.08em;
       font-weight: 700; font-size: 0.78rem;
-      padding: 16px 26px; border-radius: 999px; border: 1.6px solid var(--ink);
+      padding: 16px 26px; border-radius: 0; border: 1.6px solid var(--ink);
       display: inline-flex; align-items: center; gap: 10px; cursor: pointer;
       transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
     }
@@ -60,11 +60,11 @@
     .nav.show { transform: translateY(0); }
     .nav .brand { font-family: var(--mono); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.82rem; }
     .nav-links { display: flex; gap: 4px; align-items: center; }
-    .nav-links a { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72rem; padding: 8px 12px; border-radius: 999px; transition: background 0.15s, color 0.15s; }
+    .nav-links a { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72rem; padding: 8px 12px; border-radius: 0; transition: background 0.15s, color 0.15s; }
     .nav-links a:hover { background: var(--ink); color: var(--cream); }
     .nav-links a.cta { background: var(--lime); border: 1.4px solid var(--ink); }
     .nav-links a.cta:hover { background: var(--ink); color: var(--lime); }
-    .nav-toggle { display: none; background: none; border: 1.6px solid var(--ink); border-radius: 8px; padding: 6px 10px; font-size: 1rem; cursor: pointer; }
+    .nav-toggle { display: none; background: none; border: 1.6px solid var(--ink); border-radius: 0; padding: 6px 10px; font-size: 1rem; cursor: pointer; }
 
     /* ================= HERO ================= */
     .hero {
@@ -127,7 +127,7 @@
     .wiw-cat p { font-family: var(--mono); font-size: clamp(0.72rem, 0.95vw, 0.86rem); line-height: 1.7; color: var(--ink-soft); margin-top: 12px; max-width: 46ch; }
     .wiw-row:hover .wiw-cat p { color: var(--ink); }
     .wiw-tags { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; align-content: flex-start; max-width: 520px; }
-    .tag { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.68rem; border: 1.6px solid var(--ink); border-radius: 999px; padding: 8px 14px; color: var(--ink); white-space: nowrap; }
+    .tag { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.68rem; border: 1.6px solid var(--ink); border-radius: 0; padding: 8px 14px; color: var(--ink); white-space: nowrap; }
 
     /* ---------- Experience ---------- */
     .jobs { border-bottom: 1.6px solid var(--ink); }
@@ -141,8 +141,8 @@
     .work-scroll { display: flex; gap: 22px; overflow-x: auto; padding: 4px 2px 26px; scroll-snap-type: x mandatory; }
     .work-scroll::-webkit-scrollbar { height: 8px; }
     .work-scroll::-webkit-scrollbar-track { background: transparent; }
-    .work-scroll::-webkit-scrollbar-thumb { background: var(--ink); border-radius: 999px; }
-    .work-card { flex: 0 0 clamp(288px, 34vw, 400px); min-height: 460px; border: 1.8px solid var(--ink); border-radius: 22px; padding: 30px; display: flex; flex-direction: column; scroll-snap-align: start; color: var(--ink); }
+    .work-scroll::-webkit-scrollbar-thumb { background: var(--ink); border-radius: 0; }
+    .work-card { flex: 0 0 clamp(288px, 34vw, 400px); min-height: 460px; border: 1.8px solid var(--ink); border-radius: 0; padding: 30px; display: flex; flex-direction: column; scroll-snap-align: start; color: var(--ink); }
     .work-card .wc-top { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.06em; }
     .work-card h3 { font-family: var(--display); text-transform: uppercase; font-size: clamp(2rem, 3.4vw, 2.9rem); line-height: 0.95; margin-top: 32px; }
     .work-card .wc-desc { font-family: var(--mono); font-size: 0.8rem; line-height: 1.75; margin-top: 20px; }
