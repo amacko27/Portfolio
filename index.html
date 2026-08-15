@@ -7,201 +7,237 @@
   <meta name="description" content="Andreza Mackowiak — WordPress Developer building fast, accessible, mobile-responsive websites with clean HTML, CSS, and JavaScript. Experienced with nonprofit and mission-driven clients." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@600;700;800&family=Space+Mono:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --purple-900: #2e1065;
-      --purple-800: #4c1d95;
-      --purple-700: #5b21b6;
-      --purple-600: #6d28d9;
-      --purple-500: #7c3aed;
-      --purple-100: #ede9fe;
-      --lime-500: #84cc16;
-      --lime-400: #a3e635;
-      --lime-300: #bef264;
-      --ink: #1c1425;
-      --muted: #6b6478;
-      --bg: #ffffff;
-      --bg-soft: #f7f5fb;
-      --border: #e7e2f0;
-      --radius: 16px;
-      --shadow: 0 12px 30px -12px rgba(76, 29, 149, 0.25);
+      --cream: #f5ede0;
+      --cream-2: #efe5d4;
+      --ink: #1a1c11;
+      --ink-soft: #43442f;
+      --lime: #c3e532;
+      --lime-bright: #d0ef4f;
+      --line: rgba(26, 28, 17, 0.28);
+      --radius: 18px;
+      --mono: 'Space Mono', ui-monospace, monospace;
+      --display: 'Archivo Black', 'Archivo', Arial, sans-serif;
+      --sans: 'Open Sans', Arial, sans-serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
-    body {
-      font-family: 'Open Sans', Arial, sans-serif;
-      color: var(--ink);
-      background: var(--bg);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
-    h1, h2, h3 { font-family: 'Open Sans', Arial, sans-serif; line-height: 1.15; letter-spacing: -0.02em; }
-    a { color: inherit; text-decoration: none; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body { font-family: var(--sans); color: var(--ink); background: var(--cream); line-height: 1.6; -webkit-font-smoothing: antialiased; }
     img { max-width: 100%; display: block; }
-    section { padding: 88px 0; }
-    .wrap { width: min(1080px, 92%); margin: 0 auto; }
+    a { color: inherit; text-decoration: none; }
 
-    /* ---------- Nav ---------- */
-    header {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-    .brand { font-family: 'Open Sans', Arial, sans-serif; font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; }
-    .brand .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--lime-400); box-shadow: 0 0 0 4px rgba(163, 230, 53, 0.25); }
-    .nav-links { display: flex; gap: 6px; align-items: center; }
-    .nav-links a { padding: 8px 14px; border-radius: 999px; font-size: 0.92rem; font-weight: 500; color: var(--muted); transition: all 0.18s; }
-    .nav-links a:hover { color: var(--purple-700); background: var(--purple-100); }
-    .nav-links a.cta { background: var(--purple-600); color: #fff; }
-    .nav-links a.cta:hover { background: var(--purple-700); color: #fff; }
-    .menu-btn { display: none; background: none; border: 1px solid var(--border); border-radius: 10px; padding: 8px 10px; font-size: 1.1rem; cursor: pointer; }
+    .mono { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.12em; }
 
-    /* ---------- Hero ---------- */
-    .hero {
-      background:
-        radial-gradient(900px 400px at 85% -10%, rgba(163, 230, 53, 0.16), transparent 60%),
-        radial-gradient(700px 500px at 0% 0%, rgba(124, 58, 237, 0.14), transparent 55%),
-        var(--bg);
-      padding: 96px 0 72px;
-    }
-    .badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--purple-100); color: var(--purple-700);
-      padding: 6px 14px; border-radius: 999px; font-size: 0.82rem; font-weight: 600;
-      margin-bottom: 22px;
-    }
-    .badge .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--lime-500); }
-    .hero h1 { font-size: clamp(2.3rem, 5.5vw, 3.7rem); font-weight: 700; margin-bottom: 18px; }
-    .hero h1 .hl { color: var(--purple-600); position: relative; }
-    .hero h1 .hl::after { content: ''; position: absolute; left: 0; right: 0; bottom: 4px; height: 12px; background: var(--lime-300); z-index: -1; opacity: 0.7; }
-    .hero p.lead { font-size: 1.18rem; color: var(--muted); max-width: 640px; margin-bottom: 32px; }
-    .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+    /* ---------- Buttons ---------- */
     .btn {
-      display: inline-flex; align-items: center; gap: 9px;
-      padding: 13px 26px; border-radius: 999px; font-weight: 600; font-size: 0.98rem;
-      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+      font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.08em;
+      font-weight: 700; font-size: 0.78rem;
+      padding: 16px 26px; border-radius: 999px; border: 1.6px solid var(--ink);
+      display: inline-flex; align-items: center; gap: 10px; cursor: pointer;
+      transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
     }
-    .btn-primary { background: var(--purple-600); color: #fff; box-shadow: var(--shadow); }
-    .btn-primary:hover { transform: translateY(-2px); background: var(--purple-700); }
-    .btn-ghost { background: var(--lime-400); color: var(--purple-900); }
-    .btn-ghost:hover { transform: translateY(-2px); background: var(--lime-300); }
+    .btn-lime { background: var(--lime); color: var(--ink); }
+    .btn-lime:hover { transform: translateY(-2px); background: var(--lime-bright); }
+    .btn-outline { background: transparent; color: var(--ink); }
+    .btn-outline:hover { background: var(--ink); color: var(--cream); }
+    .btn .arr { transition: transform 0.15s ease; }
+    .btn:hover .arr { transform: translateX(4px); }
 
-    /* ---------- Section headings ---------- */
-    .eyebrow { color: var(--purple-600); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
-    .section-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; margin-bottom: 14px; }
-    .section-intro { color: var(--muted); max-width: 620px; margin-bottom: 44px; font-size: 1.05rem; }
-    .soft { background: var(--bg-soft); }
+    /* ---------- Sticky nav (appears on scroll) ---------- */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 60;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px clamp(20px, 4vw, 48px);
+      background: rgba(245, 237, 224, 0.92); backdrop-filter: blur(10px);
+      border-bottom: 1.6px solid var(--ink);
+      transform: translateY(-105%); transition: transform 0.32s ease;
+    }
+    .nav.show { transform: translateY(0); }
+    .nav .brand { font-family: var(--mono); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.82rem; }
+    .nav-links { display: flex; gap: 4px; align-items: center; }
+    .nav-links a { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72rem; padding: 8px 12px; border-radius: 999px; transition: background 0.15s, color 0.15s; }
+    .nav-links a:hover { background: var(--ink); color: var(--cream); }
+    .nav-links a.cta { background: var(--lime); border: 1.4px solid var(--ink); }
+    .nav-links a.cta:hover { background: var(--ink); color: var(--lime); }
+    .nav-toggle { display: none; background: none; border: 1.6px solid var(--ink); border-radius: 8px; padding: 6px 10px; font-size: 1rem; cursor: pointer; }
+
+    /* ================= HERO ================= */
+    .hero {
+      position: relative; overflow: hidden; background: var(--cream);
+      min-height: 100vh; display: flex; flex-direction: column;
+      padding: clamp(22px, 3vw, 34px) clamp(20px, 4vw, 48px) clamp(28px, 4vw, 48px);
+    }
+    .hero-top { width: 60%; display: flex; justify-content: space-between; gap: 20px; }
+    .hero-top span { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: clamp(0.6rem, 1vw, 0.78rem); color: var(--ink-soft); }
+    .hero-divider { width: 60%; margin-top: 14px; border-top: 1.6px dashed var(--line); }
+
+    .hero-body { position: relative; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    .hero-name {
+      font-family: var(--display); text-transform: uppercase; color: var(--ink);
+      font-size: clamp(3rem, 13.5vw, 13rem); line-height: 0.82; letter-spacing: -0.02em;
+      position: relative; z-index: 1;
+    }
+    .hero-name span { display: block; }
+
+    .hero-badge {
+      position: absolute; z-index: 5; top: 8%; left: 39%;
+      width: clamp(88px, 12vw, 168px); aspect-ratio: 1;
+      border-radius: 50%; background: var(--ink); border: 6px solid var(--lime);
+      display: grid; place-items: center;
+    }
+    .hero-badge b { font-family: var(--mono); font-weight: 700; color: var(--lime); font-size: clamp(0.9rem, 2vw, 1.7rem); letter-spacing: 0.1em; }
+
+    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; margin-top: clamp(26px, 4vw, 52px); position: relative; z-index: 5; }
+
+    .photo-card {
+      position: absolute; top: clamp(14px, 2vw, 26px); right: 0; bottom: clamp(14px, 2vw, 26px);
+      width: clamp(290px, 37%, 640px); border-radius: 20px; overflow: hidden; z-index: 4;
+      background: linear-gradient(155deg, #b58f66 0%, #997452 55%, #7c5c40 100%);
+    }
+    .photo-card img { width: 100%; height: 100%; object-fit: cover; }
+    .photo-monogram { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--display); font-size: clamp(4rem, 12vw, 9rem); color: rgba(245, 237, 224, 0.25); }
+    .photo-caption {
+      position: absolute; left: 16px; right: 16px; bottom: 16px;
+      background: var(--cream); border: 1.6px solid var(--ink); border-radius: 999px;
+      font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.08em;
+      font-size: clamp(0.6rem, 0.9vw, 0.78rem); text-align: center; padding: 12px 16px; color: var(--ink);
+    }
+
+    /* ================= SECTIONS ================= */
+    .section { padding: clamp(64px, 9vw, 120px) clamp(20px, 5vw, 48px); }
+    .section.alt { background: var(--cream-2); border-top: 1.6px solid var(--ink); border-bottom: 1.6px solid var(--ink); }
+    .container { max-width: 1180px; margin: 0 auto; }
+    .eyebrow { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.74rem; color: var(--ink-soft); margin-bottom: 18px; }
+    .section-title { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: clamp(1.9rem, 4.6vw, 3.4rem); line-height: 1.03; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .section-intro { max-width: 620px; color: var(--ink-soft); font-size: 1.05rem; margin-bottom: 52px; }
 
     /* ---------- About ---------- */
-    .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: start; }
-    .about-grid p { color: var(--muted); margin-bottom: 18px; font-size: 1.05rem; }
+    .about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 52px; align-items: start; }
+    .about-grid p { color: var(--ink-soft); margin-bottom: 18px; font-size: 1.06rem; }
     .about-grid strong { color: var(--ink); }
-    .facts { display: grid; gap: 14px; }
-    .fact { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; }
-    .fact .n { font-family: 'Open Sans', Arial, sans-serif; font-size: 1.7rem; font-weight: 700; color: var(--purple-600); }
-    .fact .l { color: var(--muted); font-size: 0.92rem; }
+    .facts { display: grid; gap: 16px; }
+    .fact { border: 1.6px solid var(--ink); border-radius: 14px; padding: 22px 24px; background: var(--cream); }
+    .fact .n { font-family: var(--display); font-size: 1.9rem; line-height: 1; }
+    .fact .l { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72rem; color: var(--ink-soft); margin-top: 8px; }
 
     /* ---------- Skills ---------- */
     .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
-    .skill-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; transition: transform 0.18s, box-shadow 0.18s; }
-    .skill-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-    .skill-card h3 { font-size: 1.15rem; margin-bottom: 6px; display: flex; align-items: center; gap: 10px; }
-    .skill-card .ico { width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; background: var(--purple-100); font-size: 1.1rem; }
-    .skill-card p { color: var(--muted); font-size: 0.92rem; margin-bottom: 16px; }
+    .skill-card { border: 1.6px solid var(--ink); border-radius: 16px; padding: 30px; background: var(--cream); transition: transform 0.18s ease, background 0.18s ease; }
+    .skill-card:hover { transform: translateY(-4px); }
+    .skill-card .num { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-soft); }
+    .skill-card h3 { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 1.3rem; margin: 6px 0 10px; }
+    .skill-card p { color: var(--ink-soft); font-size: 0.96rem; margin-bottom: 18px; }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .tag { font-size: 0.8rem; font-weight: 500; padding: 5px 12px; border-radius: 999px; background: var(--bg-soft); border: 1px solid var(--border); color: var(--purple-800); }
+    .tag { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.66rem; border: 1.3px solid var(--ink); border-radius: 999px; padding: 6px 11px; color: var(--ink); }
 
     /* ---------- Experience ---------- */
-    .timeline { position: relative; border-left: 2px solid var(--border); margin-left: 8px; }
-    .job { position: relative; padding: 0 0 36px 32px; }
-    .job:last-child { padding-bottom: 0; }
-    .job::before { content: ''; position: absolute; left: -9px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--lime-400); border: 3px solid #fff; box-shadow: 0 0 0 2px var(--purple-500); }
-    .job .role { font-family: 'Open Sans', Arial, sans-serif; font-weight: 700; font-size: 1.12rem; }
-    .job .meta { color: var(--purple-600); font-weight: 600; font-size: 0.92rem; margin: 2px 0 8px; }
-    .job .meta .when { color: var(--muted); font-weight: 500; }
-    .job p { color: var(--muted); font-size: 0.98rem; }
+    .jobs { border-bottom: 1.6px solid var(--ink); }
+    .job { display: grid; grid-template-columns: 260px 1fr; gap: 28px; padding: 30px 0; border-top: 1.6px solid var(--ink); }
+    .job .side { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.74rem; color: var(--ink-soft); }
+    .job .side .co { color: var(--ink); display: block; margin-bottom: 6px; }
+    .job .role { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 1.35rem; margin-bottom: 8px; }
+    .job p { color: var(--ink-soft); font-size: 1rem; }
 
     /* ---------- Projects ---------- */
-    .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-    .proj { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; display: flex; flex-direction: column; transition: transform 0.18s, box-shadow 0.18s; }
-    .proj:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--purple-500); }
-    .proj .top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-    .proj .pill { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--purple-700); background: var(--purple-100); padding: 4px 10px; border-radius: 999px; }
-    .proj h3 { font-size: 1.18rem; margin-bottom: 8px; }
-    .proj p { color: var(--muted); font-size: 0.92rem; flex-grow: 1; margin-bottom: 16px; }
-    .proj .link { font-weight: 600; font-size: 0.9rem; color: var(--purple-600); display: inline-flex; align-items: center; gap: 6px; }
-    .proj .link:hover { gap: 10px; }
-    .proj .link .arrow { transition: transform 0.15s; }
+    .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .proj { border: 1.6px solid var(--ink); border-radius: 16px; padding: 26px; background: var(--cream); display: flex; flex-direction: column; transition: background 0.18s ease, transform 0.18s ease; }
+    .proj:hover { background: var(--lime); transform: translateY(-4px); }
+    .proj .top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+    .proj .num { font-family: var(--mono); font-size: 0.8rem; color: var(--ink-soft); }
+    .proj:hover .num { color: var(--ink); }
+    .proj .pill { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.62rem; border: 1.3px solid var(--ink); border-radius: 999px; padding: 5px 10px; }
+    .proj h3 { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 1.3rem; margin-bottom: 8px; }
+    .proj p { color: var(--ink-soft); font-size: 0.94rem; flex-grow: 1; margin-bottom: 18px; }
+    .proj:hover p { color: var(--ink); }
+    .proj .link { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.72rem; font-weight: 700; display: inline-flex; align-items: center; gap: 7px; }
+    .proj .link .arr { transition: transform 0.15s; }
+    .proj .link:hover .arr { transform: translateX(4px); }
 
     /* ---------- Contact ---------- */
-    .contact { background: var(--purple-900); color: #fff; border-radius: 28px; padding: 64px 48px; text-align: center; position: relative; overflow: hidden; }
-    .contact::before { content: ''; position: absolute; top: -60px; right: -40px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(163,230,53,0.35), transparent 70%); }
-    .contact::after { content: ''; position: absolute; bottom: -80px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(124,58,237,0.5), transparent 70%); }
-    .contact h2 { font-size: clamp(1.9rem, 4.5vw, 2.7rem); font-weight: 700; margin-bottom: 16px; position: relative; }
-    .contact p { color: #d6ccf0; max-width: 520px; margin: 0 auto 32px; position: relative; }
-    .contact .btn-row { justify-content: center; position: relative; }
-    .contact .btn-primary { background: var(--lime-400); color: var(--purple-900); }
-    .contact .btn-primary:hover { background: var(--lime-300); }
-    .contact .btn-ghost { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.25); }
-    .contact .btn-ghost:hover { background: rgba(255,255,255,0.18); }
+    .contact-block { background: var(--ink); color: var(--cream); border-radius: 24px; padding: clamp(44px, 6vw, 80px); text-align: center; }
+    .contact-block .eyebrow { color: var(--lime); }
+    .contact-block h2 { font-family: var(--display); text-transform: uppercase; font-size: clamp(2.2rem, 6vw, 5rem); line-height: 0.9; letter-spacing: -0.02em; margin-bottom: 22px; }
+    .contact-block h2 .li { color: var(--lime); }
+    .contact-block p { color: rgba(245, 237, 224, 0.72); max-width: 520px; margin: 0 auto 34px; }
+    .contact-block .hero-cta { justify-content: center; margin-top: 0; }
+    .contact-block .btn-outline { color: var(--cream); border-color: var(--cream); }
+    .contact-block .btn-outline:hover { background: var(--cream); color: var(--ink); }
 
     /* ---------- Footer ---------- */
-    footer { padding: 36px 0; text-align: center; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
-    footer a { color: var(--purple-600); font-weight: 500; }
+    footer { padding: 30px clamp(20px, 5vw, 48px); border-top: 1.6px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    footer span, footer a { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.7rem; color: var(--ink-soft); }
+    footer a:hover { color: var(--ink); }
 
-    /* ---------- Responsive ---------- */
-    @media (max-width: 860px) {
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 900px) {
       .about-grid { grid-template-columns: 1fr; gap: 32px; }
       .skills-grid { grid-template-columns: 1fr; }
       .proj-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; flex-direction: column; align-items: stretch; background: #fff; border-bottom: 1px solid var(--border); padding: 12px; gap: 4px; }
-      .nav-links.open { display: flex; }
-      .nav-links a { padding: 12px 16px; }
-      .menu-btn { display: block; }
-      section { padding: 64px 0; }
-      .contact { padding: 48px 24px; }
+      .job { grid-template-columns: 1fr; gap: 10px; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 820px) {
+      .hero { min-height: auto; }
+      .hero-top, .hero-divider { width: 100%; }
+      .photo-card { position: relative; top: 0; right: 0; bottom: 0; width: 100%; height: 56vh; margin: 22px 0; order: -1; }
+      .hero-badge { display: none; }
+      .hero-name { font-size: clamp(2.6rem, 15vw, 6rem); }
+      .hero-cta .btn { flex: 1; justify-content: center; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ===== NAV ===== -->
-  <header>
-    <div class="wrap nav">
-      <a href="#home" class="brand"><span class="dot"></span>Andreza Mackowiak</a>
-      <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false">☰</button>
-      <nav class="nav-links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact" class="cta">Hire Me</a>
-      </nav>
-    </div>
+  <!-- ===== STICKY NAV ===== -->
+  <header class="nav" id="nav">
+    <a href="#home" class="brand">Mackowiak.dev</a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact" class="cta">Contact</a>
+    </nav>
   </header>
 
   <!-- ===== HERO ===== -->
   <section class="hero" id="home">
-    <div class="wrap">
-      <span class="badge"><span class="pulse"></span>Open to remote opportunities</span>
-      <h1><span class="hl">WordPress</span> Developer.</h1>
-      <p class="lead">I'm Andreza — a WordPress developer who turns designs into fast, accessible, pixel-precise websites. I build custom themes and clean, mobile-responsive front-ends that help <strong>nonprofits</strong> raise awareness (and money).</p>
-      <div class="btn-row">
-        <a href="#projects" class="btn btn-primary">View my work →</a>
-        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    <div class="hero-top">
+      <span>Mackowiak.dev — WordPress</span>
+      <span>Remote · CST</span>
+    </div>
+    <div class="hero-divider"></div>
+
+    <div class="hero-body">
+      <!-- Photo: drop your image at assets/andreza.jpg to replace the placeholder -->
+      <div class="photo-card">
+        <div class="photo-monogram">AM</div>
+        <img src="assets/andreza.jpg" alt="Andreza Mackowiak" onerror="this.style.display='none'" />
+        <div class="photo-caption">// WordPress dev you can trust</div>
+      </div>
+
+      <div class="hero-badge"><b>WP</b></div>
+
+      <h1 class="hero-name">
+        <span>Andreza</span>
+        <span>Mackowiak</span>
+      </h1>
+
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-lime">Discuss a project <span class="arr">→</span></a>
+        <a href="#projects" class="btn btn-outline">View my work</a>
       </div>
     </div>
   </section>
 
   <!-- ===== ABOUT ===== -->
-  <section id="about">
-    <div class="wrap">
-      <p class="eyebrow">About me</p>
-      <h2 class="section-title">Detail-obsessed, design-minded, built around WordPress.</h2>
+  <section class="section" id="about">
+    <div class="container">
+      <p class="eyebrow">// 01 — About</p>
+      <h2 class="section-title">Detail-obsessed, design-minded,<br />built around WordPress.</h2>
       <div class="about-grid">
         <div>
           <p>I'm a <strong>WordPress developer</strong> who's fluent in HTML and CSS and comfortable across the full stack — JavaScript and jQuery, database management and data query tools, front-end content management systems, and the debugging tools that keep everything running smoothly.</p>
@@ -210,43 +246,47 @@
         </div>
         <div class="facts">
           <div class="fact"><div class="n">4+ yrs</div><div class="l">Building WordPress &amp; front-end</div></div>
-          <div class="fact"><div class="n">Nonprofit</div><div class="l">Experience with mission-driven clients</div></div>
-          <div class="fact"><div class="n">Remote-ready</div><div class="l">Self-managed &amp; communicative</div></div>
+          <div class="fact"><div class="n">Nonprofit</div><div class="l">Mission-driven clients</div></div>
+          <div class="fact"><div class="n">Remote</div><div class="l">Self-managed &amp; communicative</div></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== SKILLS ===== -->
-  <section id="skills" class="soft">
-    <div class="wrap">
-      <p class="eyebrow">What I do</p>
+  <section class="section alt" id="skills">
+    <div class="container">
+      <p class="eyebrow">// 02 — Skills</p>
       <h2 class="section-title">Skills &amp; toolkit</h2>
       <p class="section-intro">A WordPress-first skill set backed by solid front-end fundamentals and the QA discipline to make sure every build looks right and performs.</p>
       <div class="skills-grid">
         <div class="skill-card">
-          <h3><span class="ico">⚙️</span>WordPress Development</h3>
+          <span class="num">(01)</span>
+          <h3>WordPress Development</h3>
           <p>Custom themes, page builders, and content structures — building and maintaining sites that are easy for clients to run day to day.</p>
           <div class="tags">
             <span class="tag">Custom themes</span><span class="tag">Elementor</span><span class="tag">ACF</span><span class="tag">Gutenberg</span><span class="tag">WooCommerce</span><span class="tag">Custom post types</span><span class="tag">REST API</span>
           </div>
         </div>
         <div class="skill-card">
-          <h3><span class="ico">🎨</span>Front-End</h3>
+          <span class="num">(02)</span>
+          <h3>Front-End</h3>
           <p>Semantic, accessible markup and clean, hand-written styling — from scratch or in a framework — with a mobile-first mindset.</p>
           <div class="tags">
             <span class="tag">HTML5</span><span class="tag">CSS3 / Sass</span><span class="tag">JavaScript</span><span class="tag">jQuery</span><span class="tag">Tailwind</span><span class="tag">Bootstrap</span><span class="tag">WCAG 2.1</span>
           </div>
         </div>
         <div class="skill-card">
-          <h3><span class="ico">🗄️</span>Back-End &amp; Data</h3>
+          <span class="num">(03)</span>
+          <h3>Back-End &amp; Data</h3>
           <p>Comfortable behind the scenes — writing PHP, managing databases, running data queries, and debugging issues wherever they surface.</p>
           <div class="tags">
             <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Database management</span><span class="tag">Data queries</span><span class="tag">Debugging tools</span><span class="tag">Excel</span>
           </div>
         </div>
         <div class="skill-card">
-          <h3><span class="ico">🔎</span>QA &amp; Performance</h3>
+          <span class="num">(04)</span>
+          <h3>QA &amp; Performance</h3>
           <p>Detail-oriented testing and performance tuning so the end-user experience is fast, consistent, and always supports the goal.</p>
           <div class="tags">
             <span class="tag">Cross-browser QA</span><span class="tag">Responsive testing</span><span class="tag">Core Web Vitals</span><span class="tag">Page speed</span><span class="tag">Git / GitHub</span><span class="tag">Analytics</span>
@@ -257,110 +297,108 @@
   </section>
 
   <!-- ===== EXPERIENCE ===== -->
-  <section id="experience">
-    <div class="wrap">
-      <p class="eyebrow">Where I've worked</p>
-      <h2 class="section-title">Experience</h2>
+  <section class="section" id="experience">
+    <div class="container">
+      <p class="eyebrow">// 03 — Experience</p>
+      <h2 class="section-title">Where I've worked</h2>
       <p class="section-intro">A track record of building and maintaining WordPress sites, shipping front-end work, and collaborating with multidisciplinary teams.</p>
-      <div class="timeline">
+      <div class="jobs">
         <div class="job">
-          <div class="role">Associate WordPress Developer</div>
-          <div class="meta">SPARK Business Works · Remote <span class="when">— Aug 2024 – Present</span></div>
-          <p>Build front-end interfaces, customize themes, integrate plugins, and optimize sites for performance and SEO. Work self-managed in a fully remote team.</p>
+          <div class="side"><span class="co">SPARK Business Works</span>Remote<br />Aug 2024 – Present</div>
+          <div>
+            <div class="role">Associate WordPress Developer</div>
+            <p>Build front-end interfaces, customize themes, integrate plugins, and optimize sites for performance and SEO. Work self-managed in a fully remote team.</p>
+          </div>
         </div>
         <div class="job">
-          <div class="role">Creative Media Specialist</div>
-          <div class="meta">Business Builders Marketing · Bloomington, IL <span class="when">— May 2022 – Jul 2024</span></div>
-          <p>Managed and updated websites across WordPress and Joomla, converting graphic, written, and multimedia content into compatible web formats and creative assets.</p>
+          <div class="side"><span class="co">Business Builders Marketing</span>Bloomington, IL<br />May 2022 – Jul 2024</div>
+          <div>
+            <div class="role">Creative Media Specialist</div>
+            <p>Managed and updated websites across WordPress and Joomla, converting graphic, written, and multimedia content into compatible web formats and creative assets.</p>
+          </div>
         </div>
         <div class="job">
-          <div class="role">Graduate Assistant, Web Designer</div>
-          <div class="meta">Illinois State University · Normal, IL <span class="when">— Jan 2021 – Dec 2022</span></div>
-          <p>Designed and tested interfaces, contributed to design guidelines, and maintained WordPress sites — ensuring a clear, logical experience for end users.</p>
+          <div class="side"><span class="co">Illinois State University</span>Normal, IL<br />Jan 2021 – Dec 2022</div>
+          <div>
+            <div class="role">Graduate Assistant, Web Designer</div>
+            <p>Designed and tested interfaces, contributed to design guidelines, and maintained WordPress sites — ensuring a clear, logical experience for end users.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== PROJECTS ===== -->
-  <section id="projects" class="soft">
-    <div class="wrap">
-      <p class="eyebrow">Selected work</p>
-      <h2 class="section-title">Projects</h2>
+  <section class="section alt" id="projects">
+    <div class="container">
+      <p class="eyebrow">// 04 — Projects</p>
+      <h2 class="section-title">Selected work</h2>
       <p class="section-intro">A mix of custom builds, redesigns, and ongoing maintenance — several for nonprofit and mission-driven organizations.</p>
       <div class="proj-grid">
         <article class="proj">
-          <div class="top"><span class="pill">Nonprofit</span></div>
+          <div class="top"><span class="num">01</span><span class="pill">Nonprofit</span></div>
           <h3>Mary Free Bed</h3>
           <p>Rebuilt a Figma redesign in WordPress using Elementor and JetEngine custom post types for a healthcare nonprofit.</p>
         </article>
         <article class="proj">
-          <div class="top"><span class="pill">Nonprofit</span></div>
+          <div class="top"><span class="num">02</span><span class="pill">Nonprofit</span></div>
           <h3>The Baby Fold</h3>
           <p>Ongoing maintenance and content updates for a Joomla-based nonprofit serving children and families.</p>
-          <a class="link" href="https://thebabyfold.org" target="_blank" rel="noopener">Visit site <span class="arrow">→</span></a>
+          <a class="link" href="https://thebabyfold.org" target="_blank" rel="noopener">Visit site <span class="arr">→</span></a>
         </article>
         <article class="proj">
-          <div class="top"><span class="pill">Custom Theme</span></div>
+          <div class="top"><span class="num">03</span><span class="pill">Custom Theme</span></div>
           <h3>Modish Pool</h3>
           <p>Custom WordPress build on a Gutenverse block theme with hand-written CSS for a fully bespoke look.</p>
         </article>
         <article class="proj">
-          <div class="top"><span class="pill">Redesign</span></div>
+          <div class="top"><span class="num">04</span><span class="pill">Redesign</span></div>
           <h3>Roc Carbon</h3>
           <p>Maintenance plus Elementor-based redesigns to modernize the site and improve usability.</p>
-          <a class="link" href="https://roccarbon.com" target="_blank" rel="noopener">Visit site <span class="arrow">→</span></a>
+          <a class="link" href="https://roccarbon.com" target="_blank" rel="noopener">Visit site <span class="arr">→</span></a>
         </article>
         <article class="proj">
-          <div class="top"><span class="pill">Maintenance</span></div>
+          <div class="top"><span class="num">05</span><span class="pill">Maintenance</span></div>
           <h3>Axis Builders</h3>
           <p>Elementor maintenance and Slider Revolution updates keeping the site current and reliable.</p>
-          <a class="link" href="https://axis-builders.com" target="_blank" rel="noopener">Visit site <span class="arrow">→</span></a>
+          <a class="link" href="https://axis-builders.com" target="_blank" rel="noopener">Visit site <span class="arr">→</span></a>
         </article>
         <article class="proj">
-          <div class="top"><span class="pill">Performance</span></div>
+          <div class="top"><span class="num">06</span><span class="pill">Performance</span></div>
           <h3>ACS Openings</h3>
           <p>WordPress maintenance with a focus on performance optimization and page-speed improvements.</p>
-          <a class="link" href="https://acsopenings.com" target="_blank" rel="noopener">Visit site <span class="arrow">→</span></a>
+          <a class="link" href="https://acsopenings.com" target="_blank" rel="noopener">Visit site <span class="arr">→</span></a>
         </article>
       </div>
     </div>
   </section>
 
   <!-- ===== CONTACT ===== -->
-  <section id="contact">
-    <div class="wrap">
-      <div class="contact">
-        <h2>Let's build something meaningful.</h2>
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-block">
+        <p class="eyebrow">// 05 — Contact</p>
+        <h2>Let's build<br />something <span class="li">meaningful.</span></h2>
         <p>I'm open to remote WordPress developer roles — especially work that helps nonprofits grow. Let's chat.</p>
-        <div class="btn-row">
-          <a href="mailto:mackowiakandreza@gmail.com" class="btn btn-primary">Email me</a>
-          <a href="https://linkedin.com/in/andrezamackowiak" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+        <div class="hero-cta">
+          <a href="mailto:mackowiakandreza@gmail.com" class="btn btn-lime">Email me <span class="arr">→</span></a>
+          <a href="https://linkedin.com/in/andrezamackowiak" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn</a>
         </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="wrap">
-      Designed &amp; hand-coded by Andreza Mackowiak · <a href="mailto:mackowiakandreza@gmail.com">mackowiakandreza@gmail.com</a>
-    </div>
+    <span>© 2026 Andreza Mackowiak</span>
+    <a href="mailto:mackowiakandreza@gmail.com">mackowiakandreza@gmail.com</a>
   </footer>
 
   <script>
-    // Mobile menu toggle
-    const btn = document.querySelector('.menu-btn');
-    const links = document.getElementById('navLinks');
-    btn.addEventListener('click', () => {
-      const open = links.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open);
-    });
-    links.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => {
-        links.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-      })
-    );
+    // Sticky nav reveal on scroll
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('show', window.scrollY > 500);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   </script>
 </body>
 </html>

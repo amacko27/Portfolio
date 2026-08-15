@@ -1,6 +1,9 @@
 # Andreza Mackowiak — Portfolio
 
-A single-page portfolio for a **WordPress Developer**, built as a static site for GitHub Pages. Hand-coded HTML/CSS with a purple & lime theme, anchor-based navigation, and a mobile-responsive layout.
+A single-page portfolio for a **WordPress Developer**, built as a static site for GitHub Pages. Hand-coded HTML/CSS in a bold editorial style — cream, lime & near-black, oversized display type, monospace labels — with anchor-based navigation and a mobile-responsive layout.
+
+## Add your photo
+The hero shows a styled placeholder (an "AM" monogram) until you add a photo. Drop a portrait at **`assets/andreza.jpg`** and it will replace the placeholder automatically. For best results use a portrait-orientation image (roughly 700×1000px or taller).
 
 ## Sections
 - **Home** — intro / hero
@@ -27,5 +30,5 @@ Then visit http://localhost:8000
 
 ## Tech
 - Plain HTML5 & CSS3 (no build step)
-- Vanilla JS for the mobile menu
-- Google Fonts: Space Grotesk + Inter
+- A few lines of vanilla JS for the scroll-reveal nav
+- Google Fonts: Archivo Black + Archivo + Space Mono + Open Sans
