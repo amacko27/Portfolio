@@ -6,7 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Andreza Mackowiak - WordPress Developer</title>
   <meta name="description"
-    content="Andreza Mackowiak — WordPress Developer building fast, accessible, mobile-responsive websites with clean HTML, CSS, and JavaScript. Experienced with nonprofit and mission-driven clients." />
+    content="Andreza Mackowiak — WordPress Developer with 4+ years building fast, accessible, mobile-responsive sites across 40+ client projects. Open to full-time remote WordPress & front-end roles." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Andreza Mackowiak — WordPress Developer" />
+  <meta property="og:description"
+    content="WordPress developer with 4+ years building fast, accessible, responsive sites across 40+ client projects. Open to remote roles." />
+  <meta property="og:url" content="https://amacko27.github.io/Portfolio/" />
+  <meta property="og:image" content="https://amacko27.github.io/Portfolio/images/og.jpg" />
+  <meta property="og:image:width" content="800" />
+  <meta property="og:image:height" content="420" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Andreza Mackowiak — WordPress Developer" />
+  <meta name="twitter:description"
+    content="WordPress developer with 4+ years building fast, accessible, responsive sites across 40+ client projects. Open to remote roles." />
+  <meta name="twitter:image" content="https://amacko27.github.io/Portfolio/images/og.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -17,13 +34,15 @@
     :root {
       --cream: #f5ede0;
       --cream-2: #efe5d4;
-      --ink: #1a1c11;
-      --ink-soft: #43442f;
-      --lime: #c3e532;
-      --lime-bright: #d0ef4f;
-      --mint: #a9e6a1;
-      --yellow: #f2d64d;
-      --line: #1a1c1147;
+      --ink: #211915;
+      --ink-soft: #5c463b;
+      /* Accent palette — warm coral / peach */
+      --coral: #ff6a4d;
+      --coral-bright: #ff8368;
+      --peach: #ffc4a3;
+      --apricot: #f4a24a;
+      --line: #2119152e;
+      --dash: #d8ab90;
       --radius: 18px;
       --mono: 'Space Mono', ui-monospace, monospace;
       --display: 'Archivo Black', 'Archivo', Arial, sans-serif;
@@ -82,14 +101,14 @@
       transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
     }
 
-    .btn-lime {
-      background: var(--lime);
+    .btn-coral {
+      background: var(--coral);
       color: var(--ink);
     }
 
-    .btn-lime:hover {
+    .btn-coral:hover {
       transform: translateY(-2px);
-      background: var(--lime-bright);
+      background: var(--coral-bright);
     }
 
     .btn-outline {
@@ -108,6 +127,10 @@
 
     .btn:hover .arr {
       transform: translateX(4px);
+    }
+
+    .btn-coral:hover .arr {
+      transform: translateY(3px);
     }
 
     /* ---------- Sticky nav (appears on scroll) ---------- */
@@ -162,13 +185,13 @@
     }
 
     .nav-links a.cta {
-      background: var(--lime);
+      background: var(--coral);
       border: 1.4px solid var(--ink);
     }
 
     .nav-links a.cta:hover {
       background: var(--ink);
-      color: var(--lime);
+      color: var(--coral);
     }
 
     .nav-toggle {
@@ -196,15 +219,54 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
+      align-items: center;
       gap: 20px;
     }
 
-    .hero-top span {
+    .hero-top span.meta {
       font-family: var(--mono);
       text-transform: uppercase;
       letter-spacing: 0.14em;
       font-size: clamp(0.6rem, 1vw, 0.78rem);
       color: var(--ink-soft);
+    }
+
+    /* Availability pill */
+    .avail {
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: clamp(0.58rem, 0.95vw, 0.72rem);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1.5px solid var(--ink);
+      background: var(--cream);
+      padding: 7px 13px;
+      white-space: nowrap;
+    }
+
+    .avail .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #2fae5e;
+      box-shadow: 0 0 0 0 rgba(47, 174, 94, 0.55);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(47, 174, 94, 0.5);
+      }
+
+      70% {
+        box-shadow: 0 0 0 7px rgba(47, 174, 94, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(47, 174, 94, 0);
+      }
     }
 
     .hero-divider {
@@ -246,13 +308,44 @@
       margin-top: clamp(16px, 2.4vw, 30px);
     }
 
+    .hero-sub {
+      font-family: var(--mono);
+      font-size: clamp(0.72rem, 1.05vw, 0.9rem);
+      letter-spacing: 0.04em;
+      color: var(--ink-soft);
+      margin-top: 12px;
+    }
+
+    .hero-sub b {
+      color: var(--ink);
+      background: var(--peach);
+      padding: 0.05em 0.35em;
+    }
+
     .hero-cta {
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
-      margin-top: clamp(26px, 4vw, 52px);
+      align-items: center;
+      margin-top: clamp(26px, 4vw, 48px);
       position: relative;
       z-index: 5;
+    }
+
+    .hero-work-link {
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.72rem;
+      color: var(--ink-soft);
+      border-bottom: 1.5px solid transparent;
+      padding-bottom: 2px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .hero-work-link:hover {
+      color: var(--ink);
+      border-color: var(--ink);
     }
 
     /* ================= SECTIONS ================= */
@@ -269,31 +362,6 @@
     .container {
       max-width: 1180px;
       margin: 0 auto;
-    }
-
-    .eyebrow {
-      font-family: var(--mono);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.74rem;
-      color: var(--ink-soft);
-      margin-bottom: 18px;
-    }
-
-    .section-title {
-      font-family: 'Archivo', sans-serif;
-      font-weight: 800;
-      font-size: clamp(1.9rem, 4.6vw, 3.4rem);
-      line-height: 1.03;
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
-    }
-
-    .section-intro {
-      max-width: 620px;
-      color: var(--ink-soft);
-      font-size: 1.05rem;
-      margin-bottom: 52px;
     }
 
     /* ---------- Section header (shared) ---------- */
@@ -333,7 +401,7 @@
 
     .sec-rule {
       border: none;
-      border-top: 2px dashed #aebf6b;
+      border-top: 2px dashed var(--dash);
       margin: 0 0 44px;
     }
 
@@ -383,25 +451,30 @@
       padding: 0.03em 0.26em;
     }
 
-    .hl-lime {
-      background: var(--lime);
+    .hl-coral {
+      background: var(--coral);
     }
 
-    .hl-mint {
-      background: var(--mint);
+    .hl-peach {
+      background: var(--peach);
     }
 
-    .hl-yellow {
-      background: var(--yellow);
+    .hl-apricot {
+      background: var(--apricot);
     }
 
     .about-note {
       font-family: var(--mono);
       font-size: clamp(0.82rem, 1.1vw, 0.95rem);
       line-height: 1.9;
-      color: rgba(245, 237, 224, 0.72);
-      max-width: 640px;
+      color: rgba(245, 237, 224, 0.74);
+      max-width: 680px;
       margin-top: clamp(36px, 5vw, 64px);
+    }
+
+    .about-note b {
+      color: var(--cream);
+      font-weight: 700;
     }
 
     /* ---------- What I work with (skills) ---------- */
@@ -411,26 +484,26 @@
       gap: clamp(16px, 2.5vw, 40px);
       align-items: start;
       padding: clamp(28px, 4vw, 46px) clamp(8px, 1.5vw, 20px);
-      border-top: 2px dashed #aebf6b;
+      border-top: 2px dashed var(--dash);
       transition: background 0.18s ease;
     }
 
     .wiw-row:last-child {
-      border-bottom: 2px dashed #aebf6b;
+      border-bottom: 2px dashed var(--dash);
     }
 
     .wiw-row:hover {
-      background: var(--lime);
+      background: var(--peach);
     }
 
     .wiw-num {
       font-family: var(--display);
       font-size: clamp(1.4rem, 2.6vw, 2.2rem);
-      color: rgba(26, 28, 17, 0.26);
+      color: rgba(33, 25, 21, 0.26);
     }
 
     .wiw-row:hover .wiw-num {
-      color: rgba(26, 28, 17, 0.55);
+      color: rgba(33, 25, 21, 0.6);
     }
 
     .wiw-cat h3 {
@@ -513,6 +586,36 @@
       font-size: 1rem;
     }
 
+    /* ---------- Education mini-row ---------- */
+    .edu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 40px;
+      margin-top: 30px;
+    }
+
+    .edu-item {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+    }
+
+    .edu-item b {
+      display: block;
+      color: var(--ink);
+      font-size: 0.86rem;
+      margin-bottom: 2px;
+    }
+
+    .edu-label {
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.72rem;
+      color: var(--ink-soft);
+      margin: 36px 0 2px;
+    }
+
     /* ---------- Selected work (horizontal scroll) ---------- */
     .work-scroll {
       display: flex;
@@ -537,41 +640,82 @@
 
     .work-card {
       flex: 0 0 clamp(288px, 34vw, 400px);
-      min-height: 460px;
+      min-height: 480px;
       border: 1.8px solid var(--ink);
       border-radius: 0;
-      padding: 30px;
+      padding: 0;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       scroll-snap-align: start;
       color: var(--ink);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .work-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 10px 10px 0 var(--ink);
+    }
+
+    .wc-thumb {
+      height: 190px;
+      border-bottom: 1.8px solid var(--ink);
+      overflow: hidden;
+      background: var(--cream-2);
+    }
+
+    .wc-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.4s ease;
+    }
+
+    .work-card:hover .wc-thumb img {
+      transform: scale(1.05);
+    }
+
+    .wc-body {
+      flex: 1;
+      padding: 24px 26px 26px;
+      display: flex;
+      flex-direction: column;
     }
 
     .work-card .wc-top {
       font-family: var(--mono);
-      font-size: 0.78rem;
+      font-size: 0.74rem;
       letter-spacing: 0.06em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .wc-visit {
+      font-weight: 700;
     }
 
     .work-card h3 {
       font-family: var(--display);
       text-transform: uppercase;
-      font-size: clamp(2rem, 3.4vw, 2.9rem);
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
       line-height: 0.95;
-      margin-top: 32px;
+      margin-top: 16px;
     }
 
     .work-card .wc-desc {
       font-family: var(--mono);
-      font-size: 0.8rem;
-      line-height: 1.75;
-      margin-top: 20px;
+      font-size: 0.78rem;
+      line-height: 1.7;
+      margin-top: 14px;
     }
 
     .work-card .wc-rule {
       border: none;
-      border-top: 2px dashed rgba(26, 28, 17, 0.55);
-      margin: auto 0 16px;
+      border-top: 2px dashed rgba(33, 25, 21, 0.5);
+      margin: auto 0 14px;
     }
 
     .work-card .wc-tags {
@@ -581,16 +725,16 @@
       font-size: 0.72rem;
     }
 
-    .wc-lime {
-      background: var(--lime);
+    .wc-coral {
+      background: var(--coral);
     }
 
-    .wc-mint {
-      background: var(--mint);
+    .wc-peach {
+      background: var(--peach);
     }
 
-    .wc-yellow {
-      background: var(--yellow);
+    .wc-apricot {
+      background: var(--apricot);
     }
 
     /* ---------- Contact + footer (WRITE ME) ---------- */
@@ -610,7 +754,7 @@
       text-transform: uppercase;
       letter-spacing: 0.16em;
       font-size: 0.78rem;
-      color: rgba(245, 237, 224, 0.55);
+      color: rgba(245, 237, 224, 0.6);
       margin-bottom: clamp(28px, 4vw, 48px);
     }
 
@@ -620,7 +764,7 @@
       gap: clamp(16px, 3vw, 48px);
       font-family: var(--display);
       text-transform: uppercase;
-      color: var(--lime);
+      color: var(--coral);
       font-size: clamp(3rem, 15vw, 13rem);
       line-height: 0.9;
       letter-spacing: -0.02em;
@@ -633,6 +777,33 @@
 
     .write-me:hover .wm-arr {
       transform: translateX(18px);
+    }
+
+    .contact-actions {
+      margin-top: clamp(30px, 4vw, 48px);
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .contact-actions .btn {
+      border-color: var(--cream);
+      color: var(--cream);
+    }
+
+    .contact-actions .btn-coral {
+      background: var(--coral);
+      color: var(--ink);
+      border-color: var(--coral);
+    }
+
+    .contact-actions .btn-coral:hover {
+      background: var(--coral-bright);
+    }
+
+    .contact-actions .btn-outline:hover {
+      background: var(--cream);
+      color: var(--ink);
     }
 
     .foot-bar {
@@ -656,7 +827,7 @@
     }
 
     .foot-bar a:hover {
-      color: var(--lime);
+      color: var(--coral);
     }
 
     /* ================= RESPONSIVE ================= */
@@ -702,13 +873,19 @@
         min-height: auto;
       }
 
+      .hero-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
       .hero-top,
       .hero-divider {
         width: 100%;
       }
 
       .hero-name {
-        font-size: clamp(2.6rem, 15vw, 6rem);
+        font-size: clamp(2.2rem, 12.3vw, 5.2rem);
       }
 
       .hero-cta .btn {
@@ -728,7 +905,8 @@
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
+      <a href="#projects">Work</a>
+      <a href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
       <a href="#contact" class="cta">Contact</a>
     </nav>
   </header>
@@ -736,8 +914,8 @@
   <!-- ===== HERO ===== -->
   <section class="hero" id="home">
     <div class="hero-top">
-      <span>Mackowiak.dev — WordPress</span>
-      <span>Remote · CST</span>
+      <span class="meta">Mackowiak.dev — WordPress Developer</span>
+      <span class="avail"><span class="dot"></span> Open to new roles · Remote (CST)</span>
     </div>
     <div class="hero-divider"></div>
 
@@ -747,10 +925,13 @@
         <span>Mackowiak</span>
       </h1>
       <p class="hero-role">WordPress Developer</p>
+      <p class="hero-sub"><b>4+ years</b> · <b>40+ client sites</b> · WordPress, front-end &amp; design</p>
 
       <div class="hero-cta">
-        <a href="#contact" class="btn btn-lime">Discuss a project <span class="arr">→</span></a>
-        <a href="#projects" class="btn btn-outline">View my work</a>
+        <a href="resume.pdf" class="btn btn-coral" target="_blank" rel="noopener">Download résumé <span
+            class="arr">↓</span></a>
+        <a href="#contact" class="btn btn-outline">Get in touch</a>
+        <a href="#projects" class="hero-work-link">↓ See selected work</a>
       </div>
     </div>
   </section>
@@ -759,16 +940,17 @@
   <section class="about" id="about">
     <div class="about-inner">
       <div class="build">
-        <div class="row"><span class="lead">I build with</span><span class="hl hl-lime">WordPress.</span></div>
-        <div class="row"><span class="lead">I sweat the</span><span class="hl hl-mint">Details.</span></div>
-        <div class="row"><span class="lead">I love to</span><span class="hl hl-yellow">Learn.</span></div>
+        <div class="row"><span class="lead">I build with</span><span class="hl hl-coral">WordPress.</span></div>
+        <div class="row"><span class="lead">I sweat the</span><span class="hl hl-peach">Details.</span></div>
+        <div class="row"><span class="lead">I love to</span><span class="hl hl-apricot">Learn.</span></div>
       </div>
-      <p class="about-note">WordPress is where I do my best work — building and maintaining sites with page builders
-        like Elementor and Divi. I have experience building pages from designs handed off in Figma and Adobe XD,
-        translating them pixel by pixel into working sites. I'm comfortable and familiar with HTML, CSS and JavaScript,
-        so I can jump in and customize whenever a design needs it. I also handle on-page SEO and work with managed
-        hosting like WP Engine. I'm detail-oriented, I test across devices and browsers, and I genuinely enjoy learning
-        new tools and platforms — always aiming to build sites that are easy for clients to run on their own.</p>
+      <p class="about-note">WordPress is where I do my best work — <b>4+ years</b> building and maintaining responsive,
+        high-performing sites across <b>40+ client projects</b>, with page builders like Elementor, Divi, Gutenverse and
+        Avada. I came to development from a strong design background (<b>M.S. in Creative Technologies</b>, Adobe
+        Creative Suite), so I can take a Figma or Adobe XD design and translate it pixel by pixel, then drop into HTML,
+        CSS and JavaScript to customize whenever a design needs it. I handle on-page SEO, Core Web Vitals and managed
+        hosting like WP Engine, test across devices and browsers, and build sites that are easy for clients to run on
+        their own. Fluent in English and Portuguese, conversational in Spanish.</p>
     </div>
   </section>
 
@@ -788,8 +970,8 @@
             <p>Page builders, blocks and content structures. Sites that are easy for clients to run day to day.</p>
           </div>
           <div class="wiw-tags">
-            <span class="tag">Elementor</span><span class="tag">Divi</span><span class="tag">Gutenberg</span><span
-              class="tag">ACF</span><span class="tag">WooCommerce</span><span class="tag">Custom post types</span>
+            <span class="tag">Elementor</span><span class="tag">Divi</span><span class="tag">Avada</span><span
+              class="tag">Gutenverse</span><span class="tag">ACF</span><span class="tag">WooCommerce</span>
           </div>
         </div>
         <div class="wiw-row">
@@ -806,35 +988,35 @@
         <div class="wiw-row">
           <div class="wiw-num">03</div>
           <div class="wiw-cat">
-            <h3>Backend &amp; Data</h3>
-            <p>Comfortable behind the scenes — PHP, databases, data queries and debugging wherever issues surface.</p>
+            <h3>Front-End &amp; Code</h3>
+            <p>Hand-written HTML, CSS and JavaScript to customize any build, plus PHP and data queries behind the scenes.</p>
           </div>
           <div class="wiw-tags">
-            <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Databases</span><span
-              class="tag">Data queries</span><span class="tag">Debugging</span><span class="tag">Excel</span>
+            <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span
+              class="tag">jQuery</span><span class="tag">PHP</span><span class="tag">MySQL</span>
           </div>
         </div>
         <div class="wiw-row">
           <div class="wiw-num">04</div>
           <div class="wiw-cat">
-            <h3>QA &amp; Testing</h3>
-            <p>Detail-oriented QA on every build. Problems get caught before a user ever sees them, not after.
-            </p>
+            <h3>Design &amp; UX</h3>
+            <p>A design-led developer — I translate Figma and Adobe XD handoffs pixel-perfect and bring Adobe-grade craft to every build.</p>
           </div>
           <div class="wiw-tags">
-            <span class="tag">Manual QA</span><span class="tag">Live transaction testing</span><span class="tag">Device
-              testing</span><span class="tag">Debugging</span><span class="tag">Git</span>
+            <span class="tag">Figma</span><span class="tag">Adobe XD</span><span class="tag">Photoshop</span><span
+              class="tag">Illustrator</span><span class="tag">Wireframing</span><span class="tag">Design systems</span>
           </div>
         </div>
         <div class="wiw-row">
           <div class="wiw-num">05</div>
           <div class="wiw-cat">
-            <h3>Hosting &amp; Analytics</h3>
-            <p>Managed hosting, uptime monitoring and tracking set up so sites stay online and every visit is measured.</p>
+            <h3>SEO &amp; Hosting</h3>
+            <p>On-page SEO, managed hosting and analytics set up so sites get found, stay online and every visit is measured.</p>
           </div>
           <div class="wiw-tags">
-            <span class="tag">WP Engine</span><span class="tag">Cloudways</span><span class="tag">Uptime
-              monitoring</span><span class="tag">Google Tag Manager</span><span class="tag">Google Analytics</span>
+            <span class="tag">On-page SEO</span><span class="tag">Google Business Profile</span><span
+              class="tag">WP Engine</span><span class="tag">Cloudways</span><span class="tag">Google Analytics</span><span
+              class="tag">Tag Manager</span>
           </div>
         </div>
       </div>
@@ -851,12 +1033,13 @@
       </div>
       <div class="jobs">
         <div class="job">
-          <div class="side"><span class="co">SPARK Business Works</span>Remote<br />Aug 2024 – Present</div>
+          <div class="side"><span class="co">SPARK Business Works</span>Remote<br />Aug 2024 – Jun 2026</div>
           <div>
             <div class="role">Associate WordPress Developer</div>
-            <p>Build and maintain responsive front-end interfaces across client WordPress sites. Customize themes,
-              integrate plugins, optimize performance through caching and minification, and apply on-page SEO
-              fundamentals.</p>
+            <p>Built and maintained responsive front-end interfaces across <strong>40+ client WordPress sites</strong>
+              using HTML, CSS and JavaScript. Optimized performance through image compression, minification and caching;
+              applied on-page SEO fundamentals; kept core, themes and plugins secure and up to date; and partnered with
+              designers, project managers and senior developers to translate client needs into shipped solutions.</p>
           </div>
         </div>
         <div class="job">
@@ -864,18 +1047,26 @@
           </div>
           <div>
             <div class="role">Creative Media Specialist</div>
-            <p>Managed and maintained client websites on WordPress and Joomla. Produced front-end and creative assets
-              aligned with brand goals, collaborating with creative and account teams to deliver on deadline.</p>
+            <p>Managed and maintained client websites on WordPress and Joomla, ensuring consistent uptime and content
+              accuracy. Produced front-end and creative assets aligned with brand and campaign goals, collaborating with
+              creative and account teams to deliver on deadline.</p>
           </div>
         </div>
         <div class="job">
           <div class="side"><span class="co">Illinois State University</span>Normal, IL<br />Jan 2021 – Dec 2022</div>
           <div>
             <div class="role">Graduate Assistant, Web Designer</div>
-            <p>Designed and tested website interfaces, established design guidelines and best practices for university
-              web properties, and maintained sites on WordPress.</p>
+            <p>Designed and tested website interfaces alongside developer and communications teams, iterating to improve
+              usability. Established design guidelines and best practices for university web properties, and maintained
+              sites on WordPress.</p>
           </div>
         </div>
+      </div>
+
+      <p class="edu-label">// Education</p>
+      <div class="edu">
+        <div class="edu-item"><b>M.S., Creative Technologies</b>Illinois State University · 2021</div>
+        <div class="edu-item"><b>B.A., Advertising</b>UNINASSAU, Recife, Brazil · 2008</div>
       </div>
     </div>
   </section>
@@ -892,54 +1083,78 @@
     </div>
     <div class="container">
       <div class="work-scroll">
-        <a class="work-card wc-lime" href="https://macksremodeling.com/" target="_blank" rel="noopener">
-          <div class="wc-top">№01 · Custom build</div>
-          <h3>Mack's Remodeling</h3>
-          <p class="wc-desc">Custom WordPress site for a remodeling company — decks, kitchens, bathrooms and full
-            renovations — with a tailored theme, clear service pages, and prominent quote-request calls to action.</p>
-          <hr class="wc-rule" />
-          <div class="wc-tags">WordPress · Custom theme</div>
+        <a class="work-card wc-coral" href="https://macksremodeling.com/" target="_blank" rel="noopener">
+          <div class="wc-thumb"><img src="images/macks-remodeling.jpg"
+              alt="Mack's Remodeling website homepage" loading="lazy" /></div>
+          <div class="wc-body">
+            <div class="wc-top"><span>№01 · Custom build</span><span class="wc-visit">Visit ↗</span></div>
+            <h3>Mack's Remodeling</h3>
+            <p class="wc-desc">Custom WordPress site for a remodeling company — decks, kitchens, bathrooms and full
+              renovations — with a tailored theme, clear service pages and prominent quote-request calls to action.</p>
+            <hr class="wc-rule" />
+            <div class="wc-tags">WordPress · Custom theme</div>
+          </div>
         </a>
-        <a class="work-card wc-mint" href="https://modishpool.com/" target="_blank" rel="noopener">
-          <div class="wc-top">№02 · Custom theme</div>
-          <h3>Modish Pool</h3>
-          <p class="wc-desc">Custom WordPress site built with the Gutenverse block theme, tailored with hand-written CSS
-            to bring a Figma design to life — responsive, on-brand, and ready to scale.</p>
-          <hr class="wc-rule" />
-          <div class="wc-tags">WordPress · Gutenverse · CSS</div>
+        <a class="work-card wc-peach" href="https://modishpool.com/" target="_blank" rel="noopener">
+          <div class="wc-thumb"><img src="images/modish-pool.jpg" alt="Modish Pool website homepage"
+              loading="lazy" /></div>
+          <div class="wc-body">
+            <div class="wc-top"><span>№02 · Custom theme</span><span class="wc-visit">Visit ↗</span></div>
+            <h3>Modish Pool</h3>
+            <p class="wc-desc">Custom WordPress site built with the Gutenverse block theme, tailored with hand-written
+              CSS to bring a Figma design to life — responsive, on-brand and ready to scale.</p>
+            <hr class="wc-rule" />
+            <div class="wc-tags">WordPress · Gutenverse · CSS</div>
+          </div>
         </a>
-        <a class="work-card wc-yellow" href="https://www.roccarbon.com/" target="_blank" rel="noopener">
-          <div class="wc-top">№03 · Redesign</div>
-          <h3>Roc Carbon</h3>
-          <p class="wc-desc">Ongoing maintenance and pages redesign for a carbon industry website — refreshed layouts
-            built with Elementor, keeping the site performant, up-to-date, and on-brand.</p>
-          <hr class="wc-rule" />
-          <div class="wc-tags">WordPress · Elementor</div>
+        <a class="work-card wc-apricot" href="https://www.roccarbon.com/" target="_blank" rel="noopener">
+          <div class="wc-thumb"><img src="images/roc-carbon.jpg" alt="Roc Carbon website homepage"
+              loading="lazy" /></div>
+          <div class="wc-body">
+            <div class="wc-top"><span>№03 · Redesign</span><span class="wc-visit">Visit ↗</span></div>
+            <h3>Roc Carbon</h3>
+            <p class="wc-desc">Ongoing maintenance and pages redesign for a carbon-industry website — refreshed layouts
+              built with Elementor, keeping the site performant, up to date and on-brand.</p>
+            <hr class="wc-rule" />
+            <div class="wc-tags">WordPress · Elementor</div>
+          </div>
         </a>
-        <a class="work-card wc-lime" href="https://www.axis-builders.com/" target="_blank" rel="noopener">
-          <div class="wc-top">№04 · Maintenance</div>
-          <h3>Axis Builders</h3>
-          <p class="wc-desc">Ongoing maintenance for a construction company site built with Elementor; content and
-            design updates, Slider Revolution custom post types, form management, plugin updates, and cache optimization
-            to keep the site fast and reliable.</p>
-          <hr class="wc-rule" />
-          <div class="wc-tags">WordPress · Slider Rev</div>
+        <a class="work-card wc-coral" href="https://www.axis-builders.com/" target="_blank" rel="noopener">
+          <div class="wc-thumb"><img src="images/axis-builders.jpg" alt="Axis Builders website homepage"
+              loading="lazy" /></div>
+          <div class="wc-body">
+            <div class="wc-top"><span>№04 · Maintenance</span><span class="wc-visit">Visit ↗</span></div>
+            <h3>Axis Builders</h3>
+            <p class="wc-desc">Ongoing maintenance for a construction company site built with Elementor — content and
+              design updates, Slider Revolution custom post types, form management, plugin updates and cache
+              optimization.</p>
+            <hr class="wc-rule" />
+            <div class="wc-tags">WordPress · Slider Rev</div>
+          </div>
         </a>
-        <a class="work-card wc-mint" href="https://acsopenings.com/" target="_blank" rel="noopener">
-          <div class="wc-top">№05 · Performance</div>
-          <h3>ACS Openings</h3>
-          <p class="wc-desc">Ongoing WordPress maintenance; plugin updates, cache and performance optimization, and
-            content updates to keep the site secure, fast, and current.</p>
-          <hr class="wc-rule" />
-          <div class="wc-tags">WordPress · Core Web Vitals</div>
+        <a class="work-card wc-peach" href="https://acsopenings.com/" target="_blank" rel="noopener">
+          <div class="wc-thumb"><img src="images/acs-openings.jpg" alt="ACS Openings website homepage"
+              loading="lazy" /></div>
+          <div class="wc-body">
+            <div class="wc-top"><span>№05 · Performance</span><span class="wc-visit">Visit ↗</span></div>
+            <h3>ACS Openings</h3>
+            <p class="wc-desc">Ongoing WordPress maintenance — plugin updates, cache and performance optimization, and
+              content updates to keep the site secure, fast and current.</p>
+            <hr class="wc-rule" />
+            <div class="wc-tags">WordPress · Core Web Vitals</div>
+          </div>
         </a>
-        <a class="work-card wc-yellow" href="https://oak-landscaping.com/" target="_blank" rel="noopener">
-          <div class="wc-top">№06 · Build &amp; SEO</div>
-          <h3>Oak Landscaping</h3>
-          <p class="wc-desc">Built on Elementor and maintained — with Google Business, Analytics and SEO performance
-            work.</p>
-          <hr class="wc-rule" />
-          <div class="wc-tags">WordPress · Elementor · SEO</div>
+        <a class="work-card wc-apricot" href="https://oak-landscaping.com/" target="_blank" rel="noopener">
+          <div class="wc-thumb"><img src="images/oak-landscaping.jpg" alt="Oak Landscaping website homepage"
+              loading="lazy" /></div>
+          <div class="wc-body">
+            <div class="wc-top"><span>№06 · Build &amp; SEO</span><span class="wc-visit">Visit ↗</span></div>
+            <h3>Oak Landscaping</h3>
+            <p class="wc-desc">Built on Elementor and maintained — with Google Business Profile, Analytics and on-page
+              SEO performance work to help a local business get found.</p>
+            <hr class="wc-rule" />
+            <div class="wc-tags">WordPress · Elementor · SEO</div>
+          </div>
         </a>
       </div>
     </div>
@@ -948,11 +1163,18 @@
   <!-- ===== CONTACT + FOOTER ===== -->
   <section class="contact" id="contact">
     <div class="contact-inner">
-      <p class="contact-eyebrow">// Got a project? A role? A question?</p>
+      <p class="contact-eyebrow">// Open to WordPress &amp; front-end roles — let's talk.</p>
       <a href="mailto:mackowiakandreza@gmail.com" class="write-me">Write me <span class="wm-arr">→</span></a>
+      <div class="contact-actions">
+        <a href="resume.pdf" class="btn btn-coral" target="_blank" rel="noopener">Download résumé <span
+            class="arr">↓</span></a>
+        <a href="https://linkedin.com/in/andrezamackowiak" class="btn btn-outline" target="_blank"
+          rel="noopener">Connect on LinkedIn</a>
+      </div>
     </div>
     <div class="foot-bar">
       <a href="mailto:mackowiakandreza@gmail.com">mackowiakandreza@gmail.com</a>
+      <a href="resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
       <a href="https://linkedin.com/in/andrezamackowiak" target="_blank" rel="noopener">LinkedIn: /andrezamackowiak</a>
       <a href="https://github.com/amacko27" target="_blank" rel="noopener">GitHub: @amacko27</a>
       <span>© 2026 Andreza Mackowiak</span>
